@@ -13,7 +13,7 @@ class Net(object):
         self.nlays = len(lays)
         self.sizes = lays
         self.biases = [np.random.rand(y, 1) for y in self.sizes[1:]]
-        self.weights = [np.random.randn(y, x) for x, y in zip(self.sizes[:-1], self.sizes[1:])]
+        self.weights = [np.random.randn(y, x)/(y**0.5) for x, y in zip(self.sizes[:-1], self.sizes[1:])]
 
     def feedforward(self, a):
         for b, w in zip(self.biases, self.weights):
